@@ -1,12 +1,13 @@
-package com.kakao.invest.entity.product;
+package com.kakao.invest.model;
 
-public enum InvestStatus {
+public enum ProductStatus {
+
     INVESTING("모집중"),
-    COMPLETE("모집완료");
+    SOLD_OUT("모집완료");
 
     private final String displayName;
 
-    InvestStatus(String displayName) {
+    ProductStatus(String displayName) {
         this.displayName = displayName;
     }
 

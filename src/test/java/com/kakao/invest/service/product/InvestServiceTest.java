@@ -1,16 +1,13 @@
 package com.kakao.invest.service.product;
 
-import com.kakao.invest.controller.product.ProductController;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
@@ -26,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class InvestServiceTest {
 
-    private final String PRODUCT_FIND_ALL_V1 = "/v1/invest/product";
+    private final String PRODUCT_FIND_ALL_V1 = "/v1/invest/products";
 
     @Autowired
     private MockMvc mockMvc;

@@ -16,7 +16,6 @@ public class ProductController {
 
     @GetMapping("")
     public List<ProductDto> findEvents() {
-
         return productService.findProducts();
     }
 }

@@ -1,15 +1,21 @@
 package com.kakao.invest.service.product;
 
-import org.springframework.data.domain.Page;
+import com.kakao.invest.repository.product.ProductRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 @Service
 public class ProductService {
 
+    private final ProductRepository productRepository;
+
     public List<ProductDto> findProducts() {
-        return List.of(ProductDto.of(1L, "12344", 11L, LocalDateTime.now(), LocalDateTime.now()));
+        return productRepository.findAll().stream()
+                .map(ProductDto::of)
+                .collect(Collectors.toList());
     }
 }

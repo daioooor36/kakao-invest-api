@@ -16,7 +16,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public List<ProductDto> findProducts() {
-        LocalDateTime now = LocalDateTime.now();
+        final LocalDateTime now = LocalDateTime.now();
         List<Product> availableProducts = productRepository.findAllByStartedAtLessThanEqualAndFinishedAtGreaterThanEqual(now, now);
 
         return availableProducts.stream()

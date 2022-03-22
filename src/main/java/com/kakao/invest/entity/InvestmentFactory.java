@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class InvestmentFactory {
 
-    public static Investment success(String userId, Product product, Long investingAmount) {
-        return new Investment(product, investingAmount, InvestStatus.SUCCESS, LocalDateTime.now());
+    public static Investment success(Long userId, Product product, Long investingAmount) {
+        return new Investment(userId, product, investingAmount, InvestStatus.SUCCESS, LocalDateTime.now());
     }
 }

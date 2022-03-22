@@ -1,5 +1,6 @@
 package com.kakao.invest.service.product;
 
+import com.kakao.invest.model.ProductResponse;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,24 +32,24 @@ public class InvestServiceTest {
     @MockBean
     private ProductService productService;
 
-    private static ProductDto productDtoFixture;
+    private static ProductResponse productResponseFixture;
 
     @BeforeAll
     static void init() {
-        productDtoFixture = ProductFixture.testProduct();
+        productResponseFixture = ProductFixture.testProduct();
     }
 
     @Test
     void 전체_투자상품_조회() throws Exception {
-        given(productService.findProducts()).willReturn(List.of(productDtoFixture));
+        given(productService.findAll()).willReturn(List.of(productResponseFixture));
         mockMvc.perform(get(PRODUCT_FIND_ALL_V1).contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.[0].productId").value(productDtoFixture.getProductId()))
-                .andExpect(jsonPath("$.[0].title").value(productDtoFixture.getTitle()))
-                .andExpect(jsonPath("$.[0].totalInvestingAmount").value(productDtoFixture.getTotalInvestingAmount()))
-                .andExpect(jsonPath("$.[0].investCount").value(productDtoFixture.getInvestCount()))
-                .andExpect(jsonPath("$.[0].investStatus").value(productDtoFixture.getInvestStatus().name()))
+                .andExpect(jsonPath("$.[0].productId").value(productResponseFixture.getProductId()))
+                .andExpect(jsonPath("$.[0].title").value(productResponseFixture.getTitle()))
+                .andExpect(jsonPath("$.[0].totalInvestingAmount").value(productResponseFixture.getTotalInvestingAmount()))
+                .andExpect(jsonPath("$.[0].investCount").value(productResponseFixture.getInvestCount()))
+                .andExpect(jsonPath("$.[0].investStatus").value(productResponseFixture.getInvestStatus().name()))
                 .andReturn();
     }
 }

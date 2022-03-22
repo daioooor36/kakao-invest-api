@@ -6,6 +6,8 @@ import lombok.Getter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+import static java.lang.Thread.sleep;
+
 @Getter
 @Entity
 public class Product {
@@ -29,9 +31,11 @@ public class Product {
 
     private LocalDateTime finishedAt;
 
-    public boolean tryInvest(Long investingAmount) {
+    public boolean tryInvest(Long investingAmount) throws InterruptedException {
+        sleep(10_000L);
         if(isSoldOut() || this.productStatus == ProductStatus.SOLD_OUT)
             return Boolean.FALSE;
+
 
         invest(investingAmount);
         return Boolean.TRUE;
@@ -46,7 +50,7 @@ public class Product {
         }
     }
 
-    private boolean isSoldOut() {
+    public boolean isSoldOut() {
         return this.currentAmount > this.totalAmount;
     }
 }

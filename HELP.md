@@ -12,6 +12,6 @@
 
 ## H2 DB 세팅용 SQL
 ```SQL
-insert into product(title, total_investing_amount, invest_count, invest_status, started_at, finished_at)
-select '테스트 상품01', 500000, 0, 'INVESTING', PARSEDATETIME ('2022-03-20 10:00:00','yyyy-MM-dd hh:mm:ss'), PARSEDATETIME ('2022-04-30 22:00:00','yyyy-MM-dd hh:mm:ss');
+insert into product(title, total_amount, current_amount, invest_count, product_status, started_at, finished_at)
+select '테스트 상품01', 500000, 0, 0, 'INVESTING', PARSEDATETIME ('2022-03-20 10:00:00','yyyy-MM-dd hh:mm:ss'), PARSEDATETIME ('2022-04-30 22:00:00','yyyy-MM-dd hh:mm:ss');
 ```

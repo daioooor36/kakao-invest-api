@@ -1,22 +1,17 @@
-package com.kakao.invest.entity;
+package com.kakao.invest.model;
 
-import com.kakao.invest.model.InvestStatus;
+import com.kakao.invest.entity.Product;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Getter
-@NoArgsConstructor
-@Entity
-public class Investment {
+@Data
+public class InvestmentDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private Long userId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "product_id")
@@ -29,8 +24,7 @@ public class Investment {
 
     private LocalDateTime investedAt;
 
-    public Investment(Long userId, Product product, Long investingAmount, InvestStatus investStatus, LocalDateTime investedAt) {
-        this.userId = userId;
+    public InvestmentDto(Product product, Long investingAmount, InvestStatus investStatus, LocalDateTime investedAt) {
         this.product = product;
         this.investingAmount = investingAmount;
         this.investStatus = investStatus;

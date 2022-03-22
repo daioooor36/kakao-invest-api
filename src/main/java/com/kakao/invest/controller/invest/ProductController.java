@@ -27,7 +27,7 @@ public class ProductController {
     @PostMapping("/product/{productId:[0-9]+}")
     public UserInvestResponse invest(@RequestHeader("X-USER-ID") Long userId,
                                      @PathVariable Long productId,
-                                     @Valid @RequestBody UserInvestRequest userInvestRequest) throws InterruptedException {
+                                     @Valid @RequestBody UserInvestRequest userInvestRequest) {
         return investDomainService.invest(userId, productId, userInvestRequest);
     }
 

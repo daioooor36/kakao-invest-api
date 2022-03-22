@@ -6,7 +6,6 @@ import com.kakao.invest.model.ProductResponse;
 import com.kakao.invest.repository.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
@@ -29,8 +28,8 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-    @Transactional(readOnly = true, isolation = Isolation.SERIALIZABLE)
+    @Transactional(readOnly = true)
     public Product findOne(Long productId) {
-        return productRepository.findById(productId).orElseThrow(ProductNotFoundException::new);
+        return productRepository.findByProductId(productId).orElseThrow(ProductNotFoundException::new);
     }
 }

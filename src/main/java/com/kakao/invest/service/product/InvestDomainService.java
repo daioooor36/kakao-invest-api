@@ -7,8 +7,6 @@ import com.kakao.invest.model.UserInvestRequest;
 import com.kakao.invest.model.UserInvestResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -21,8 +19,8 @@ public class InvestDomainService {
     private final ProductService productService;
     private final InvestService investService;
 
-    @Transactional(isolation = Isolation.SERIALIZABLE)
-    public UserInvestResponse invest(Long userId, Long productId, UserInvestRequest userInvestRequest) throws InterruptedException {
+    @Transactional
+    public UserInvestResponse invest(Long userId, Long productId, UserInvestRequest userInvestRequest) {
         Product product = productService.findOne(productId);
         return investService.invest(userId, product, userInvestRequest);
     }

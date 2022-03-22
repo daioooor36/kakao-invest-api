@@ -31,7 +31,7 @@ public class ProductResponse {
     }
 
     public static ProductResponse of(Product product) {
-        return new ProductResponse(product.getId(),
+        return new ProductResponse(product.getProductId(),
                 product.getTitle(),
                 product.getTotalAmount(),
                 product.getInvestCount(),

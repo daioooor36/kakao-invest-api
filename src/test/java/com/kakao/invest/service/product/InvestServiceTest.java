@@ -49,7 +49,7 @@ public class InvestServiceTest {
                 .andExpect(jsonPath("$.[0].title").value(productResponseFixture.getTitle()))
                 .andExpect(jsonPath("$.[0].totalInvestingAmount").value(productResponseFixture.getTotalInvestingAmount()))
                 .andExpect(jsonPath("$.[0].investCount").value(productResponseFixture.getInvestCount()))
-                .andExpect(jsonPath("$.[0].investStatus").value(productResponseFixture.getInvestStatus().name()))
+                .andExpect(jsonPath("$.[0].investStatus").value(productResponseFixture.getProductStatus().name()))
                 .andReturn();
     }
 }

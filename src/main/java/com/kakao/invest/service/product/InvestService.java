@@ -20,7 +20,7 @@ public class InvestService {
     private final InvestmentRepository investmentRepository;
 
     @Transactional
-    public UserInvestResponse invest(Long userId, Product product, UserInvestRequest userInvestRequest) throws InterruptedException {
+    public UserInvestResponse invest(Long userId, Product product, UserInvestRequest userInvestRequest) {
         boolean investResult = product.tryInvest(userInvestRequest.getInvestingAmount());
         if (investResult == Boolean.FALSE)
             return UserInvestResponse.of(InvestStatus.FAILURE);

@@ -1,9 +1,9 @@
-package com.kakao.invest.service.product;
+package com.kakao.invest.service;
 
 import com.kakao.invest.entity.Product;
 import com.kakao.invest.model.ProductStatus;
 import com.kakao.invest.model.UserInvestRequest;
-import com.kakao.invest.repository.product.ProductRepository;
+import com.kakao.invest.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

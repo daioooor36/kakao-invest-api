@@ -1,4 +1,4 @@
-package com.kakao.invest.repository.product;
+package com.kakao.invest.repository;
 
 import com.kakao.invest.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;

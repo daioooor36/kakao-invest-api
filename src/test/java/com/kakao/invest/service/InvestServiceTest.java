@@ -1,4 +1,4 @@
-package com.kakao.invest.service.product;
+package com.kakao.invest.service;
 
 import com.kakao.invest.model.ProductResponse;
 import org.junit.jupiter.api.BeforeAll;

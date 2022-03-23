@@ -1,10 +1,10 @@
-package com.kakao.invest.controller.invest;
+package com.kakao.invest.controller;
 
 import com.kakao.invest.model.ProductResponse;
 import com.kakao.invest.model.UserInvestRequest;
 import com.kakao.invest.model.UserInvestResponse;
-import com.kakao.invest.service.product.InvestDomainService;
-import com.kakao.invest.service.product.ProductService;
+import com.kakao.invest.service.InvestDomainService;
+import com.kakao.invest.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

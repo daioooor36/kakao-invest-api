@@ -1,4 +1,4 @@
-package com.kakao.invest.service.product;
+package com.kakao.invest.service;
 
 import com.kakao.invest.entity.Investment;
 import com.kakao.invest.entity.InvestmentFactory;
@@ -6,7 +6,7 @@ import com.kakao.invest.entity.Product;
 import com.kakao.invest.model.InvestStatus;
 import com.kakao.invest.model.UserInvestRequest;
 import com.kakao.invest.model.UserInvestResponse;
-import com.kakao.invest.repository.product.InvestmentRepository;
+import com.kakao.invest.repository.InvestmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
